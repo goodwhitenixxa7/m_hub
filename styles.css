@@ -1,0 +1,186 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black; /* Dark theme background */
+    color: white;
+}
+
+/* Header Section */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Dark header */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 32px; /* Larger header font size */
+    font-weight: bold;
+    color: orange;
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Fade-in animation */
+}
+
+#random-line {
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    display: none;
+    transition: opacity 1s ease-in-out;
+}
+
+header img {
+    max-height: 125px;
+}
+
+/* Main Section */
+.media-grid {
+    padding: 120px 20px 20px; /* Padding to account for the fixed header */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.media-item {
+    background-color: #222; /* Dark card background */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-item img,
+.media-item video {
+    max-width: 100%;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.media-item h2 {
+    margin-top: 20px;
+    font-size: 24px; /* Consistent heading size */
+    color: orange;
+}
+
+.media-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #aaa;
+}
+
+/* Hover Effects */
+.media-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+.scroll-fade,
+.scroll-fade-left {
+    opacity: 0;
+    transform: translateX(50px); /* Right for fade */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-fade-left {
+    transform: translateX(-50px); /* Left for fade */
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+}
+
+
+
+
+
+/* Default (Dark Theme) Variables */
+:root {
+    --background-color: black;
+    --text-color: white;
+    --header-bg-color: #333;
+    --card-bg-color: #222;
+    --heading-color: orange;
+    --paragraph-color: #aaa;
+}
+
+/* White Theme Variables */
+:root.light-mode {
+    --background-color: white;
+    --text-color: black;
+    --header-bg-color: #f4f4f4;
+    --card-bg-color: #fff;
+    --heading-color: #333;
+    --paragraph-color: #555;
+}
+
+/* Apply Variables */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+}
+
+.media-item {
+    background-color: var(--card-bg-color);
+}
+
+.media-item h2 {
+    color: var(--heading-color);
+}
+
+.media-item p {
+    color: var(--paragraph-color);
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.2);
+}
