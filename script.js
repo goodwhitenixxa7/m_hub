@@ -1,21 +1,3 @@
-// disclaimer functionality
-    const disclaimerOverlay = document.getElementById("disclaimer-overlay");
-    const agreeButton = document.getElementById("agree-btn");
-    const disagreeButton = document.getElementById("disagree-btn");
-
-    if (disclaimerOverlay && agreeButton && disagreeButton) {
-        agreeButton.addEventListener("click", () => {
-            disclaimerOverlay.style.display = "none";
-        });
-
-        disagreeButton.addEventListener("click", () => {
-            window.location.href = "https://www.google.com";
-        });
-    }
-
-
-
-
 // Function to add fade-in effects on scroll
 function fadeInOnScroll() {
     const fadeRightElements = document.querySelectorAll(".scroll-fade");
@@ -43,21 +25,21 @@ window.addEventListener("scroll", fadeInOnScroll);
 
 // Random Line Functionality
 const randomLines = [
-    // "Mohit Di Bund Ch Lunn Dita",
-    // "Mohit Di Maa Da Bhosda!!",
-    // "Mohit Nang Saala Chuda",
-    // "Mohit Dujeya Di Chiza Len Wala (Bund Ch V)!",
-    // "Mohit Besharam Sala Dujeya Di Chiza Toddan Wala",
-    // "Mohit Di Maa De Lann Dita Bina Condom To!",
-    // "Mohit Sarre Da Khaansura",
+    // "MØh1ŧ Di Bund Ch Lunn Dita",
+    // "MØh1ŧ Di Maa Da Bhosda!!",
+    // "MØh1ŧ Nang Saala Chuda",
+    // "MØh1ŧ Dujeya Di Chiza Len Wala (Bund Ch V)!",
+    // "MØh1ŧ Besharam Sala Dujeya Di Chiza Toddan Wala",
+    // "MØh1ŧ Di Maa De Lann Dita Bina Condom To!",
+    // "MØh1ŧ Sarre Da Khaansura",
 
-        "Mohit ਦੀ ਬੂੰਦ ਚ ਲੁੰ ਦਿਤਾ",
-        "Mohit ਦੀ ਮਾਂ ਦਾ ਭੋਸੜਾ!!",
-        "Mohit ਨੰਗ ਸਾਲਾ ਚੂਦਾ",
-        "Mohit ਦੂਜਿਆਂ ਦੀਆਂ ਚੀਜ਼ਾਂ ਲੈਣ ਵਾਲਾ (ਬੂੰਦ ਚ ਵੀ)!",
-        "Mohit ਬੇਸ਼ਰਮ ਸਾਲਾ ਦੂਜਿਆਂ ਦੀਆਂ ਚੀਜ਼ਾਂ ਤੋੜਣ ਵਾਲਾ",
-        "Mohit ਦੀ ਮਾਂ ਦੇ ਲੁੰ ਦਿਤਾ ਬਿਨਾ Condom ਤੋ!",
-        "Mohit ਸਾਰੇ ਦਾ ਖਾਂਸੁਰਾ"
+        "MØh1ŧ ਦੀ ਬੂੰਦ ਚ ਲੁੰ ਦਿਤਾ",
+        "MØh1ŧ ਦੀ ਮਾਂ ਦਾ ਭੋਸੜਾ!!",
+        "MØh1ŧ ਨੰਗ ਸਾਲਾ ਚੂਦਾ",
+        "MØh1ŧ ਦੂਜਿਆਂ ਦੀਆਂ ਚੀਜ਼ਾਂ ਲੈਣ ਵਾਲਾ (ਬੂੰਦ ਚ ਵੀ)!",
+        "MØh1ŧ ਬੇਸ਼ਰਮ ਸਾਲਾ ਦੂਜਿਆਂ ਦੀਆਂ ਚੀਜ਼ਾਂ ਤੋੜਣ ਵਾਲਾ",
+        "MØh1ŧ ਦੀ ਮਾਂ ਦੇ ਲੁੰ ਦਿਤਾ ਬਿਨਾ Condom ਤੋ!",
+        "MØh1ŧ ਸਾਰੇ ਦਾ ਖਾਂਸੁਰਾ"
     
 ];
 
@@ -100,3 +82,38 @@ window.onload = function () {
         localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
     });
 
+// Select elements
+const disclaimerOverlay = document.getElementById("disclaimer-overlay");
+const agreeButton = document.getElementById("agree-btn");
+const disagreeButton = document.getElementById("disagree-btn");
+
+// Ensure the buttons are found
+if (disclaimerOverlay && agreeButton && disagreeButton) {
+    console.log("Elements found successfully.");
+
+    // "I Agree" Button - Hides the disclaimer
+    agreeButton.addEventListener("click", () => {
+        console.log("I Agree button clicked."); // Debugging log
+        disclaimerOverlay.style.display = "none"; // Hide the disclaimer
+    });
+
+    // "Leave" Button - Redirects to another page
+    disagreeButton.addEventListener("click", () => {
+        console.log("Leave button clicked."); // Debugging log
+        window.location.href = "https://www.google.com"; // Redirect
+    });
+} else {
+    console.error("One or more elements (disclaimerOverlay, agreeButton, disagreeButton) not found.");
+}
+
+
+
+
+//warning:
+// Select the button in the permanent overlay
+const amrButton = document.getElementById("amr-btn");
+
+// Add an event listener to log a message when the button is clicked
+amrButton.addEventListener("click", () => {
+    console.log("amr button clicked. The overlay cannot be removed by clicking this button.");
+});
