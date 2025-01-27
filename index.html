@@ -19,7 +19,7 @@
     </div>
 </div> -->
     <!-- Disclaimer Popup -->
-<div id="disclaimer-overlay">
+<!-- <div id="disclaimer-overlay">
     <div id="disclaimer-box">
         <h2>Disclaimer</h2>
         <p>Dear Fucklng Mohit. This website is made for you. It contains the edlted Plcs of U. </p>
@@ -29,6 +29,22 @@
         </div>
     </div>
 </div>
+ -->
+    // Disclaimer functionality
+const disclaimerOverlay = document.getElementById("disclaimer-overlay");
+const agreeButton = document.getElementById("agree-btn");
+const disagreeButton = document.getElementById("disagree-btn");
+
+// "I Agree" Button - Hides the disclaimer and enables the website
+agreeButton.addEventListener("click", () => {
+    disclaimerOverlay.style.display = "none"; // Hide the disclaimer overlay
+});
+
+// "Leave" Button - Redirects to a different website or closes the tab
+disagreeButton.addEventListener("click", () => {
+    window.location.href = "https://www.google.com"; // Redirect to Google or another safe page
+});
+
 
     <!-- Header Section -->
     <header>
