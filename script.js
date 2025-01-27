@@ -1,17 +1,18 @@
-// Disclaimer functionality
-const disclaimerOverlay = document.getElementById("disclaimer-overlay");
-const agreeButton = document.getElementById("agree-btn");
-const disagreeButton = document.getElementById("disagree-btn");
+// disclaimer functionality
+    const disclaimerOverlay = document.getElementById("disclaimer-overlay");
+    const agreeButton = document.getElementById("agree-btn");
+    const disagreeButton = document.getElementById("disagree-btn");
 
-// "I Agree" Button - Hides the disclaimer and enables the website
-agreeButton.addEventListener("click", () => {
-    disclaimerOverlay.style.display = "none"; // Hide the disclaimer overlay
-});
+    if (disclaimerOverlay && agreeButton && disagreeButton) {
+        agreeButton.addEventListener("click", () => {
+            disclaimerOverlay.style.display = "none";
+        });
 
-// "Leave" Button - Redirects to a different website or closes the tab
-disagreeButton.addEventListener("click", () => {
-    window.location.href = "https://www.google.com"; // Redirect to Google or another safe page
-});
+        disagreeButton.addEventListener("click", () => {
+            window.location.href = "https://www.google.com";
+        });
+    }
+
 
 
 
