@@ -113,7 +113,22 @@ if (disclaimerOverlay && agreeButton && disagreeButton) {
 // Select the button in the permanent overlay
 const amrButton = document.getElementById("amr-btn");
 
+
 // Add an event listener to log a message when the button is clicked
 amrButton.addEventListener("click", () => {
     console.log("amr button clicked. The overlay cannot be removed by clicking this button.");
 });
+
+
+
+// remove this after sometime (no interaction code)
+// Disable dragging for all elements on the website
+document.addEventListener("dragstart", (event) => {
+    event.preventDefault(); // Prevent dragging
+});
+
+// Disable right-click context menu to block saving images or inspecting
+document.addEventListener("contextmenu", (event) => {
+    event.preventDefault(); // Disable right-click
+});
+
