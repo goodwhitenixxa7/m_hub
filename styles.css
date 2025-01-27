@@ -181,6 +181,77 @@ header {
     transition: transform 0.3s ease;
 }
 
+
+
+/* disclaimer tab styling */
+/* Disclaimer Overlay */
+#disclaimer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(10px); /* Blurred background */
+}
+
+/* Disclaimer Box */
+#disclaimer-box {
+    background-color: #222; /* Dark box background */
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 15px; /* iOS-like curved corners */
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Disclaimer Heading */
+#disclaimer-box h2 {
+    font-size: 24px;
+    color: orange;
+    margin-bottom: 15px;
+}
+
+/* Disclaimer Paragraph */
+#disclaimer-box p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Disclaimer Buttons */
+.disclaimer-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.disclaimer-buttons .btn-orange {
+    background-color: orange;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px; /* iOS-like curved corners */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex: 1; /* Equal button widths */
+}
+
+.disclaimer-buttons .btn-orange:hover {
+    background-color: #ff9f00; /* Slightly darker orange on hover */
+}
+
+
+
 #theme-toggle:hover {
     transform: scale(1.2);
 }
