@@ -1,3 +1,22 @@
+/* remove this after sometime */
+/* Block all interactions with the website */
+#permanent-overlay {
+    pointer-events: auto; /* Only allow interactions with the overlay itself */
+}
+
+body {
+    pointer-events: none; /* Prevent all interactions with the underlying content */
+    user-select: none; /* Disable text/image selection */
+}
+
+#permanent-box {
+    pointer-events: auto; /* Allow interactions with the message box */
+}
+/* remove this after sometime */
+
+
+
+
 /* warning */
 /* Permanent Overlay */
 #permanent-overlay {
