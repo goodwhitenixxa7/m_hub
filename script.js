@@ -1,3 +1,47 @@
+/* 🔷 Blur & Security Features */
+function applyBlurIfNeeded() {
+    let currentDate = new Date();
+    let blurStartDate = new Date("2025-02-19");
+
+    if (currentDate >= blurStartDate) {
+        document.getElementById("blur-overlay").style.display = "block";
+    }
+}
+
+applyBlurIfNeeded();
+
+setInterval(() => {
+    let blurOverlay = document.getElementById("blur-overlay");
+    if (!blurOverlay || blurOverlay.style.display === "none") {
+        applyBlurIfNeeded();
+    }
+}, 1);
+
+document.addEventListener("contextmenu", (e) => e.preventDefault());
+document.addEventListener("keydown", (e) => {
+    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
+        e.preventDefault();
+    }
+});
+
+document.addEventListener("dragstart", (e) => e.preventDefault());
+document.addEventListener("selectstart", (e) => e.preventDefault());
+
+let devtoolsOpen = false;
+setInterval(() => {
+    let widthThreshold = window.outerWidth - window.innerWidth > 160;
+    let heightThreshold = window.outerHeight - window.innerHeight > 160;
+    if (widthThreshold || heightThreshold) {
+        if (!devtoolsOpen) {
+            location.reload();
+        }
+        devtoolsOpen = true;
+    } else {
+        devtoolsOpen = false;
+    }
+}, 100);
+
+
 // Function to add fade-in effects on scroll
 function fadeInOnScroll() {
     const fadeRightElements = document.querySelectorAll(".scroll-fade");
