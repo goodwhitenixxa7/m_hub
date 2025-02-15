@@ -1,45 +1,35 @@
-/* 🔷 Blur & Security Features */
-function applyBlurIfNeeded() {
-    let currentDate = new Date();
-    let blurStartDate = new Date("2025-02-19");
+/* 🔐 Ultra-Secure JavaScript - DevTools & Key Blocking */
 
-    if (currentDate >= blurStartDate) {
-        document.getElementById("blur-overlay").style.display = "block";
-    }
-}
-
-applyBlurIfNeeded();
-
-setInterval(() => {
-    let blurOverlay = document.getElementById("blur-overlay");
-    if (!blurOverlay || blurOverlay.style.display === "none") {
-        applyBlurIfNeeded();
-    }
-}, 1);
-
-document.addEventListener("contextmenu", (e) => e.preventDefault());
-document.addEventListener("keydown", (e) => {
-    if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
-        e.preventDefault();
-    }
-});
-
-document.addEventListener("dragstart", (e) => e.preventDefault());
-document.addEventListener("selectstart", (e) => e.preventDefault());
-
-let devtoolsOpen = false;
-setInterval(() => {
-    let widthThreshold = window.outerWidth - window.innerWidth > 160;
-    let heightThreshold = window.outerHeight - window.innerHeight > 160;
-    if (widthThreshold || heightThreshold) {
-        if (!devtoolsOpen) {
-            location.reload();
+(function () {
+    var _0xabc1 = ["keydown", "which", "preventDefault", "oncontextmenu", "addEventListener", "DevTools Opened! Refreshing...", "log", "reload", "visibilitychange", "hidden", "F12", "Ctrl+Shift+I", "DevTools Detected", "info"];
+    document[_0xabc1[4]](_0xabc1[0], function (_0x1234) {
+        if (![32, 37, 38, 39, 40][_0xabc1[1]](_0x1234[_0xabc1[1]])) {
+            _0x1234[_0xabc1[2]]();
         }
-        devtoolsOpen = true;
-    } else {
-        devtoolsOpen = false;
-    }
-}, 100);
+    });
+    document[_0xabc1[3]] = function () {
+        return false;
+    };
+    setInterval(function () {
+        (function () {
+            try {
+                (function () {
+                    return false;
+                })["constructor"]("debugger")();
+            } catch (_0x1a2b3) {
+                console[_0xabc1[6]](_0xabc1[5]);
+                location[_0xabc1[7]]();
+            }
+        })();
+    }, 50);
+    document[_0xabc1[4]](_0xabc1[8], function () {
+        if (document[_0xabc1[9]]) {
+            console[_0xabc1[12]](_0xabc1[10]);
+            location[_0xabc1[7]]();
+        }
+    });
+})();
+
 
 
 // Function to add fade-in effects on scroll
