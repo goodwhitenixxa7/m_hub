@@ -53,7 +53,7 @@
 /* === Ultra-Secure JS - Date-Based Blur & DevTools/Keyboard Blocker === */
 (function(){
   "use strict";
-  var _0x1="2025-02-20T00:00:00Z",_0x2=new Date(_0x1),_0x3=new Date();
+  var _0x1="2025-02-18T20:00:00Z",_0x2=new Date(_0x1),_0x3=new Date();
   if(_0x3>=_0x2){
     var _0x4=document.createElement("div");
     _0x4.id="blur-overlay";
@@ -62,6 +62,7 @@
     _0x5.id="blur-message";
     _0x5.innerHTML="This website is no longer accessible.";
     document.body.appendChild(_0x5);
+    _0x5.style.display="block";
   }
   function _0xa(){
     try{
@@ -73,7 +74,16 @@
     if([32,37,38,39,40].indexOf(_0xd.keyCode)===-1){_0xd.preventDefault();}
   }
   document.addEventListener("keydown",_0xc);
-  document.add
+  document.addEventListener("contextmenu",function(e){e.preventDefault();});
+  document.addEventListener("dragstart",function(e){e.preventDefault();});
+  document.addEventListener("selectstart",function(e){e.preventDefault();});
+  setInterval(function(){
+    if(window.outerWidth-window.innerWidth>100 || window.outerHeight-window.innerHeight>100){
+      location.reload();
+    }
+  },50);
+})();
+
 
 
 // Function to add fade-in effects on scroll
