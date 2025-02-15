@@ -1,34 +1,33 @@
-/* 🔐 Ultra-Secure JavaScript - DevTools & Key Blocking */
+// === Script: Security & Auto-Blur After Date ===
+(function() {
+    const blurDate = new Date("2025-02-20T00:00:00Z"); // Auto-blur after 20 Feb 2025
+    const now = new Date();
 
-(function () {
-    var _0xabc1 = ["keydown", "which", "preventDefault", "oncontextmenu", "addEventListener", "DevTools Opened! Refreshing...", "log", "reload", "visibilitychange", "hidden", "F12", "Ctrl+Shift+I", "DevTools Detected", "info"];
-    document[_0xabc1[4]](_0xabc1[0], function (_0x1234) {
-        if (![32, 37, 38, 39, 40][_0xabc1[1]](_0x1234[_0xabc1[1]])) {
-            _0x1234[_0xabc1[2]]();
+    if (now >= blurDate) {
+        document.body.classList.add("blurred");
+        let msgBox = document.createElement("div");
+        msgBox.id = "blur-message";
+        msgBox.innerHTML = "This website is no longer accessible.";
+        document.body.appendChild(msgBox);
+        msgBox.style.display = "block";
+    }
+
+    function detectDevTools() {
+        if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+            location.reload();
         }
-    });
-    document[_0xabc1[3]] = function () {
-        return false;
-    };
-    setInterval(function () {
-        (function () {
-            try {
-                (function () {
-                    return false;
-                })["constructor"]("debugger")();
-            } catch (_0x1a2b3) {
-                console[_0xabc1[6]](_0xabc1[5]);
-                location[_0xabc1[7]]();
-            }
-        })();
-    }, 50);
-    document[_0xabc1[4]](_0xabc1[8], function () {
-        if (document[_0xabc1[9]]) {
-            console[_0xabc1[12]](_0xabc1[10]);
-            location[_0xabc1[7]]();
-        }
-    });
+        setTimeout(detectDevTools, 1); // Minimum possible delay (1ms)
+    }
+
+    function blockKeys(e) {
+        if (![32, 37, 38, 39, 40].includes(e.keyCode)) e.preventDefault();
+    }
+
+    window.addEventListener("keydown", blockKeys);
+    window.addEventListener("contextmenu", e => e.preventDefault());
+    detectDevTools();
 })();
+
 
 
 
