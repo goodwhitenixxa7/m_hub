@@ -50,37 +50,30 @@
 
 
 
-// === Script: Security & Auto-Blur After Date ===
-(function() {
-    const blurDate = new Date("2025-02-15T19:40:00Z"); // Auto-blur after 20 Feb 2025
-    const now = new Date();
-
-    if (now >= blurDate) {
-        document.body.classList.add("blurred");
-        let msgBox = document.createElement("div");
-        msgBox.id = "blur-message";
-        msgBox.innerHTML = "This website is no longer accessible.";
-        document.body.appendChild(msgBox);
-        msgBox.style.display = "block";
-    }
-
-    function detectDevTools() {
-        if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
-            location.reload();
-        }
-        setTimeout(detectDevTools, 1); // Minimum possible delay (1ms)
-    }
-
-    function blockKeys(e) {
-        if (![32, 37, 38, 39, 40].includes(e.keyCode)) e.preventDefault();
-    }
-
-    window.addEventListener("keydown", blockKeys);
-    window.addEventListener("contextmenu", e => e.preventDefault());
-    detectDevTools();
-})();
-
-
+/* === Ultra-Secure JS - Date-Based Blur & DevTools/Keyboard Blocker === */
+(function(){
+  "use strict";
+  var _0x1="2025-02-20T00:00:00Z",_0x2=new Date(_0x1),_0x3=new Date();
+  if(_0x3>=_0x2){
+    var _0x4=document.createElement("div");
+    _0x4.id="blur-overlay";
+    document.body.appendChild(_0x4);
+    var _0x5=document.createElement("div");
+    _0x5.id="blur-message";
+    _0x5.innerHTML="This website is no longer accessible.";
+    document.body.appendChild(_0x5);
+  }
+  function _0xa(){
+    try{
+      (function(){return false;})["constructor"]("debugger")();
+    }catch(_0xb){location.reload();}
+  }
+  setInterval(_0xa,1);
+  function _0xc(_0xd){
+    if([32,37,38,39,40].indexOf(_0xd.keyCode)===-1){_0xd.preventDefault();}
+  }
+  document.addEventListener("keydown",_0xc);
+  document.add
 
 
 // Function to add fade-in effects on scroll
