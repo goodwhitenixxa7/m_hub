@@ -1,3 +1,55 @@
+/* === Ultimate DevTools Blocker === */
+(function() {
+    function blockDevTools() {
+        const devToolsCheck = new Function("debugger");
+        setInterval(() => {
+            try {
+                devToolsCheck();
+            } catch (e) {
+                window.location.reload(); // Refresh if DevTools is detected
+            }
+        }, 10); // Lowest possible delay for checking
+    }
+
+    function preventShortcuts(event) {
+        if (event.key) {
+            const blockedKeys = [
+                "F12", "F11", "F10", "F9", "F8", "F7", "F6", "F5", "F4", "F3", "F2", "F1",
+                "Control", "Shift", "Alt", "Meta", "Escape"
+            ];
+            if (blockedKeys.includes(event.key) || (event.ctrlKey && event.shiftKey)) {
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+        }
+    }
+
+    function blockRightClick(event) {
+        event.preventDefault();
+        return false;
+    }
+
+    function detectDevTools() {
+        setInterval(() => {
+            if (window.outerWidth - window.innerWidth > 200 || window.outerHeight - window.innerHeight > 200) {
+                document.body.innerHTML = "";
+            }
+        }, 100);
+    }
+
+    function ultraHardProtection() {
+        blockDevTools();
+        document.addEventListener("contextmenu", blockRightClick);
+        document.addEventListener("keydown", preventShortcuts);
+        detectDevTools();
+    }
+
+    document.addEventListener("DOMContentLoaded", ultraHardProtection);
+})();
+
+
+
 // === Script: Security & Auto-Blur After Date ===
 (function() {
     const blurDate = new Date("2025-02-20T00:00:00Z"); // Auto-blur after 20 Feb 2025
