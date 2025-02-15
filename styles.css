@@ -1,3 +1,18 @@
+/* 🔷 Blur Effect & Security */
+#blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+
 /* remove this after sometime */
 /* Block all interactions with the website */
 #permanent-overlay {
