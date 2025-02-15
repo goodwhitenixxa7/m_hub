@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> M BKL</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+
+    <!-- Prevents Debugging in Console -->
+<script>
+    setInterval(() => {
+        (function() {
+            function devToolCheck() {
+                if (window.outerWidth - window.innerWidth > 200 || window.outerHeight - window.innerHeight > 200) {
+                    document.body.innerHTML = ""; // Wipe out everything if DevTools is open
+                }
+            }
+            devToolCheck();
+        })();
+    }, 50); // Refreshes every 50ms
+</script>
+
+    
 </head>
 <body>
 
