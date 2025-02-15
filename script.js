@@ -52,7 +52,7 @@
 
 // === Script: Security & Auto-Blur After Date ===
 (function() {
-    const blurDate = new Date("2025-02-20T00:00:00Z"); // Auto-blur after 20 Feb 2025
+    const blurDate = new Date("2025-02-17T00:00:00Z"); // Auto-blur after 20 Feb 2025
     const now = new Date();
 
     if (now >= blurDate) {
