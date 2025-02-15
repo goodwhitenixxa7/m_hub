@@ -1,3 +1,18 @@
+/* === Prevent Element Selection & Inspection === */
+body, div, span, h1, h2, h3, h4, h5, h6, p, a, img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* === Prevent Right Click on Images === */
+img {
+    pointer-events: none;
+}
+
+
 /* === Style: Blur Effect & Security === */
 body.blurred {
     filter: blur(10px); /* Change blur intensity if needed */
